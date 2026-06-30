@@ -1,0 +1,34 @@
+[project]
+  dependencies = ["typer>=0.26.8"]
+  description = "My CLI"
+  license = { text = "MIT" }
+  name = "meocli"
+  readme = "README.md"
+  requires-python = ">=3.10"
+  version = "0.1.0"
+
+[project.urls]
+  Homepage = "https://pypi.org/project/meocli"
+  Repository = "https://github.com/meme2046/meocli-py"
+
+[project.scripts]
+  example = "cli.example:app"
+
+[tool.uv]
+[[tool.uv.index]]
+  default = true
+  url = "https://pypi.org/simple"
+  # url = "https://mirrors.cloud.tencent.com/pypi/simple"
+  # url = "https://mirrors.aliyun.com/pypi/simple/"
+
+[tool.hatch.build]
+  exclude = []
+  include = ["pyproject.toml"]
+  packages = ["cli"]
+
+[build-system]
+  build-backend = "hatchling.build"
+  requires = ["hatchling"]
+
+[dependency-groups]
+  dev = ["ipykernel", "ruff"]

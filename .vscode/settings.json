@@ -1,0 +1,177 @@
+{
+  "explorer.confirmDelete": true,
+  "editor.fontSize": 13,
+  "editor.fontFamily": "Consolas,'Courier New',monospace",
+  "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
+  "terminal.integrated.fontSize": 12,
+  "editor.colorDecorators": true,
+  "editor.defaultColorDecorators": "always",
+  "tailwindCSS.colorDecorators": true,
+  // 📝powershelel配置
+  "terminal.integrated.profiles.windows": {
+    "pwsh": {
+      "path": "c:/.scoop/shims/pwsh.exe",
+      "args": [],
+      "icon": "terminal-powershell"
+    },
+    "nu": {
+      "path": "c:/.scoop/shims/nu.exe",
+      "args": []
+    }
+  },
+  "git.autofetch": true,
+  "terminal.integrated.defaultProfile.windows": "nu",
+  "terminal.integrated.automationProfile.windows": {
+    "path": "c:/.scoop/shims/pwsh.exe",
+    "args": []
+  },
+  // 终端日志级别
+  "terminal.integrated.enablePersistentSessions": true,
+  "terminal.integrated.showExitAlert": true,
+  // 📝ruff
+  "ruff.fixAll": true,
+  "python.analysis.typeCheckingMode": "standard",
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.ruff": "explicit", // 保存时自动修复可修复的 lint 错误
+      "source.organizeImports.ruff": "explicit" // 保存时自动排序 import 语句
+    }
+  },
+  "python.envFile": "${workspaceFolder}/.env",
+  "terminal.integrated.env.windows": {
+    "PYTHONPATH": "${workspaceFolder}"
+  },
+  "terminal.integrated.env.linux": {
+    "PYTHONPATH": "${workspaceFolder}"
+  },
+  "terminal.integrated.env.osx": {
+    "PYTHONPATH": "${workspaceFolder}"
+  },
+  // 📝jupyter.notebook
+  "jupyter.notebookFileRoot": "${workspaceFolder}", // 📌
+  "notebook.defaultFormatter": "charliermarsh.ruff",
+  "notebook.formatOnSave.enabled": true, // notebook 保存时自动格式化
+  "notebook.output.textLineLimit": 18,
+  "notebook.codeActionsOnSave": {
+    "notebook.source.fixAll": "explicit", // notebook 保存时自动修复可修复的 lint 错误
+    "notebook.source.organizeImports": "explicit" // notebook 保存时自动排序 import 语句
+  },
+  "emeraldwalk.runonsave": {
+    "commands": [
+      {
+        // prettier
+        "match": "\\.(txt|ts|js|jsx|tsx|json|html|css|graphql|gql|yaml|yml|md)$",
+        "notMatch": "node_modules/*$",
+        "isAsync": true,
+        "cmd": "me prettier ${file}"
+      },
+      {
+        // @prettier/plugin-xml
+        "match": "\\.(xml|svg)$",
+        "isAsync": true,
+        "cmd": "me prettier ${file}"
+      },
+      {
+        // prettier-plugin-toml
+        "match": "\\.(toml)$",
+        "isAsync": true,
+        "cmd": "me prettier ${file}"
+      },
+      {
+        // prettier-plugin-nginx
+        "match": "\\.(nginx)$",
+        "isAsync": true,
+        "cmd": "me prettier ${file}"
+      },
+      {
+        // prettier-plugin-sh
+        "match": "\\.(sh|env|Dockerfile|properties|gitignore|dockerignore|prettierignore)$",
+        "notMatch": "\\.(nu)$",
+        "isAsync": true,
+        "cmd": "me prettier ${file}"
+      },
+      {
+        // no-dot-ext
+        "match": "Dockerfile$|web.config",
+        "isAsync": true,
+        "cmd": "me prettier ${file}"
+      }
+    ]
+  },
+  "editor.formatOnSave": false, // 保存时格式化
+  "[go]": {
+    "editor.defaultFormatter": "golang.go"
+  },
+  // 📝彩虹缩进 indent-rainbow 配置
+  "editor.tabSize": 2,
+  "indentRainbow.ignoreErrorLanguages": ["plaintext"],
+  "indentRainbow.includedLanguages": [
+    "plaintext",
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "yaml",
+    "xml",
+    "dockerfile",
+    "shellscript",
+    "markdown",
+    "python",
+    "html",
+    "css",
+    "toml",
+    "sql",
+    "go",
+    "lua",
+    "nginx",
+    "nushell",
+    "dotenv"
+  ],
+  "indentRainbow.excludedLanguages": [],
+  // 📝code-runner
+  "code-runner.clearPreviousOutput": true,
+  "code-runner.executorMap": {
+    "python": "set PYTHONPATH=. && set PYTHONIOENCODING=utf-8 && $pythonPath $fullFileName",
+    "typescript": "node --loader ts-node/esm --disable-warning=ExperimentalWarning"
+  },
+  "json.format.enable": true,
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.colorTheme": "Dark 2026",
+  "terminal.integrated.enableMultiLinePasteWarning": "auto",
+  // 📝vscode自带css规则配置
+  "css.validate": true,
+  "css.lint.unknownAtRules": "ignore", // 忽略未知的 @ 规则
+  "css.lint.unknownProperties": "warning", // 对未知的属性发出警告
+  "css.lint.vendorPrefix": "warning", // 对供应商前缀发出警告
+  "css.lint.duplicateProperties": "error", // 对重复的属性发出错误
+  "css.lint.emptyRules": "warning",
+  "tailwindCSS.files.exclude": [
+    "**/.git/**",
+    "**/node_modules/**",
+    "**/.hg/**",
+    "**/.svn/**",
+    "**/src/components/ui/**/*"
+  ],
+  "files.associations": {
+    ".prettierrc": "json",
+    "*.txt": "markdown",
+    ".nginx": "nginx",
+    "*.svg": "xml",
+    "*.sh": "shellscript",
+    "*.conf": "ini",
+    "*.nu": "nushell",
+    "*.env": "dotenv",
+    "*.xml": "xml",
+    "*.py": "python",
+    "*.toml": "toml"
+  },
+  "files.saveConflictResolution": "overwriteFileOnDisk",
+  "Lingma.PreferredLanguage forCommitMessage": "简体中文",
+  "Lingma.PreferredLanguage for AI Chat": "简体中文",
+  "Lingma.DisplayLanguage": "简体中文",
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "window.commandCenter": false
+}
